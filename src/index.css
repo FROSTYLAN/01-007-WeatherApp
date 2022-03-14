@@ -17,11 +17,10 @@ code {
 
 .App{
   margin: auto;
-  transform: translateY(50%);
   opacity: .7;
   background-color: white;
   width: 20rem;
-  padding: 3rem 0rem;
+  padding: 3rem 2rem;
   border-radius: 1rem;
 }
 .boton{
