@@ -34,7 +34,8 @@ code {
 .App div{
   opacity: .7;
   background-color: white;
-  width: 20rem;
+  max-width: 20rem;
+  margin: 0 1rem;
   padding: 3rem 2rem;
   border-radius: 1rem;
 }
