@@ -21,11 +21,13 @@ function App() {
 
   return (
     <div className="App">
-    <h1>Weather App</h1>
-    <h3>{weather?.name}, {weather?.sys.country}</h3>
-    <img src={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`} alt="" />
-      <h4>{change ? (parseInt(weather?.main.temp) - 273.15).toFixed(2) + " °C"  : (((parseInt(weather?.main.temp) - 273.15)*9/5)+32).toFixed(2) + " °F"} </h4>
-    <button className='boton' onClick={() => setChange(!change)}>{change? "Change to °F" : "Change to °C" }</button>
+      <div>
+        <h1>Weather App</h1>
+        <h3>{weather?.name}, {weather?.sys.country}</h3>
+        <img src={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`} alt="" />
+        <h4>{change ? (parseInt(weather?.main.temp) - 273.15).toFixed(2) + " °C" : (((parseInt(weather?.main.temp) - 273.15) * 9 / 5) + 32).toFixed(2) + " °F"} </h4>
+        <button className='boton' onClick={() => setChange(!change)}>{change ? "Change to °F" : "Change to °C"}</button>
+      </div>
     </div>
   );
 }
