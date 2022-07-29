@@ -46,7 +46,9 @@ function App() {
             </h4>
           </article>
           <article className="main__contents-others">
-            <p>"{weather?.weather[0].description}"</p>
+            <p>
+              <b>"{weather?.weather[0].description}"</b>
+            </p>
             <p>Wind speed: {weather?.wind.speed} m/s</p>
             <p>Clouds: {weather?.clouds.all}%</p>
             <p>Humidity: {weather?.main.humidity}</p>
