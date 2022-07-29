@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./loader.css";
+import LazyLoad from "react-lazy-load";
 
 function App() {
   const [weather, setWeather] = useState();
@@ -50,10 +51,12 @@ function App() {
           </h2>
           <section className="main__contents">
             <article className="main__contents-temperature">
-              <img
-                src={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`}
-                alt=""
-              />
+              <LazyLoad width={"100%"} debounce={false} offsetVertical={200}>
+                <img
+                  src={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`}
+                  alt=""
+                />
+              </LazyLoad>
               <h4>
                 {change
                   ? (parseInt(weather?.main.temp) - 273.15).toFixed(2) + " °C"
