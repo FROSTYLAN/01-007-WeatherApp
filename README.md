@@ -1,5 +1,8 @@
-# Para probar entra aquí:
-> Página desplegada: https://priceless-williams-b9b8e3.netlify.app
+# 01-007-WeatherApp
+
+Miniapp que devuelve datos del clima según tu zona | Consumo de Api | Axios | Geolocation | loader
+
+- Live Site URL: https://01-007-weather-app.netlify.app/
 
 # Getting Started with Create React App
 
