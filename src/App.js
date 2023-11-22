@@ -1,12 +1,27 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./loader.css";
-import LazyLoad from "react-lazy-load";
+import { Loader } from "./loader/Loader";
+
+import logo from "./img/logo.png"
+
+import { NearestCity } from "./nearest-city/nearest-city";
+import { ListStates } from "./list-states/list-states";
 
 function App() {
   const [weather, setWeather] = useState();
-  const [change, setChange] = useState(false);
-  const [loader, setLoader] = useState(true);
+  const [loading, setLoading] = useState(true);
+
+  const API_URL = "https://api.airvisual.com/v2"
+  const API_KEY = "27e6af69-dd13-45cd-8027-391d3b3e81f5"
+
+  const POLLUTION_LEVELS = {
+    0: 'Bueno', // 0 - 50
+    1: 'Moderado', // 51 - 100
+    2: 'No saludable para grupos sensibles', // 101 - 150
+    3: 'No saludable', // 151 - 200
+    4: 'Muy no saludable', // 201 - 300
+    5: 'Peligroso' // 301 - 999+
+  }
 
   const success = (pos) => {
     const lat = pos.coords.latitude;
@@ -14,11 +29,11 @@ function App() {
 
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=2b6fb305fce3d2641512ec2c4368693f`
+        `${API_URL}/nearest_city?lat==${lat}&&lon==${lon}&key=${API_KEY}`
       )
       .then((res) => {
-        setWeather(res.data);
-        setLoader(false);
+        setWeather(res.data.data);
+        setLoading(false);
       });
   };
 
@@ -26,60 +41,21 @@ function App() {
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
+  if (loading) {
+    return (
+      <div className="App">
+        <Loader />
+      </div>
+    )
+  }
+
   return (
     <div className="App">
-      {loader ? (
-        <div class="lds-spinner">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      ) : (
-        <div className="main">
-          <h1 className="main__title">Weather App</h1>
-          <h2 className="main__location">
-            {weather?.name}, {weather?.sys.country}
-          </h2>
-          <section className="main__contents">
-            <article className="main__contents-temperature">
-              <LazyLoad width={"100%"} debounce={false} offsetVertical={200}>
-                <img
-                  src={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`}
-                  alt=""
-                />
-              </LazyLoad>
-              <h4>
-                {change
-                  ? (parseInt(weather?.main.temp) - 273.15).toFixed(2) + " °C"
-                  : (
-                      ((parseInt(weather?.main.temp) - 273.15) * 9) / 5 +
-                      32
-                    ).toFixed(2) + " °F"}{" "}
-              </h4>
-            </article>
-            <article className="main__contents-others">
-              <p>
-                <b>"{weather?.weather[0].description}"</b>
-              </p>
-              <p>Wind speed: {weather?.wind.speed} m/s</p>
-              <p>Clouds: {weather?.clouds.all}%</p>
-              <p>Humidity: {weather?.main.humidity}</p>
-            </article>
-          </section>
-          <button className="button" onClick={() => setChange(!change)}>
-            Degress °F/°C
-          </button>
-        </div>
-      )}
+      <img className="logo" src={logo} alt="logo"/>
+      <div className="main">
+        <NearestCity weather={weather}/> 
+        <ListStates />
+      </div>
     </div>
   );
 }

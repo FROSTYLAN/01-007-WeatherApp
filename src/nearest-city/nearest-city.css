@@ -1,0 +1,53 @@
+.ubication-container img {
+    width: 24px;
+    margin-right: 4px;
+}
+
+.ubication-container p:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.aqi-container {
+    background-color: rgb(118, 177, 30);
+    color: rgb(56, 84, 15);
+    margin: 20px 12px;
+    border-radius: 12px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.aqi-container p {
+    margin: 2px;
+}
+
+.aqi-container p:first-child {
+    font-size: 2rem;
+}
+
+.weather-container {
+    display: flex;
+    justify-content: center;
+}
+
+.weather-container article p {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: 8px;
+}
+
+.weather-container article img {
+    width: 24px;
+    margin-right: 8px;
+}
+
+.weather-container article:first-child img {
+    width: auto;
+    margin-right: 8px;
+}
+

@@ -11,9 +11,19 @@ body {
   box-sizing: border-box;
   width: 100%;
   height: 100vh;
-  box-sizing: border-box;
+  position: relative; /* Añade esta línea para que el pseudoelemento se posicione correctamente */
 }
 
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Ajusta el valor de '0.5' para controlar la opacidad y la oscuridad */
+  z-index: -1; /* Coloca el pseudoelemento detrás del contenido del body */
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -27,14 +37,22 @@ code {
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  width: 120px;
 }
 
 .App .main {
   background-color: rgba(255, 255, 255, 0.7);
   min-width: 300px;
   border-radius: 10px;
+  padding-top: 8px;
   padding-bottom: 24px;
 }
 
