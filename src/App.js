@@ -14,15 +14,6 @@ function App() {
   const API_URL = "https://api.airvisual.com/v2"
   const API_KEY = "27e6af69-dd13-45cd-8027-391d3b3e81f5"
 
-  const POLLUTION_LEVELS = {
-    0: 'Bueno', // 0 - 50
-    1: 'Moderado', // 51 - 100
-    2: 'No saludable para grupos sensibles', // 101 - 150
-    3: 'No saludable', // 151 - 200
-    4: 'Muy no saludable', // 201 - 300
-    5: 'Peligroso' // 301 - 999+
-  }
-
   const success = (pos) => {
     const lat = pos.coords.latitude;
     const lon = pos.coords.longitude;
