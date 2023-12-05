@@ -1,0 +1,45 @@
+.Resources {
+    text-align: left;
+    overflow: auto;
+    max-height: calc(100vh - 104.8px);
+    padding-top: .2rem;
+}
+
+.Resources a {
+    text-decoration: none;
+    color: #000;
+}
+
+.Resources a:hover {
+    text-decoration: none;
+    color: #27ae60
+}
+
+.Resources .notice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: .1px solid rgb(200, 200, 200);
+}
+.Resources .notice .description {
+    width: 70%;
+}
+.Resources .notice .title {
+    margin: 0rem 2rem 0 1rem;
+    font-weight: 600;
+}
+.Resources .notice .days {
+    margin: 8px 0 0 1rem;
+    font-size: 0.8rem;
+    color: rgb(154, 154, 154);
+}
+.Resources .notice figure {
+    width: 30%;
+    margin: 0;
+}
+.Resources .notice figure img {
+    width: 100px;
+    height: 66.89px;
+}

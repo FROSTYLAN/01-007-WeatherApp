@@ -1,0 +1,59 @@
+.Notices {
+    text-align: left;
+    overflow: auto;
+    max-height: calc(100vh - 104.8px);
+}
+
+.Notices a {
+    text-decoration: none;
+    color: #000;
+}
+
+.Notices a:hover {
+    text-decoration: none;
+    color: #27ae60
+}
+
+.Notices .principal {
+    margin-bottom: 1rem;
+}
+.Notices .principal .title {
+    margin: 1rem 2rem 0 1rem;
+    font-weight: 600;
+}
+.Notices .principal .days {
+    margin: 8px 0 0 1rem;
+    font-size: 0.8rem;
+    color: rgb(154, 154, 154);
+}
+.Notices .principal img {
+    width: 100%;
+    height: 180px;
+}
+
+.Notices .notice {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 8px;
+    border-bottom: .1px solid rgb(200, 200, 200);
+}
+.Notices .notice .description {
+    width: 70%;
+}
+.Notices .notice .title {
+    margin: 1rem 2rem 0 1rem;
+}
+.Notices .notice .days {
+    margin: 8px 0 0 1rem;
+    font-size: 0.8rem;
+    color: rgb(154, 154, 154);
+}
+.Notices .notice figure {
+    width: 30%;
+    margin: 0;
+}
+.Notices .notice figure img {
+    width: 100px;
+    height: 66.89px;
+}

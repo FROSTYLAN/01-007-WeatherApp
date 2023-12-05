@@ -5,15 +5,15 @@ import cloudy from '../img/cloudy.png'
 import thermometer from '../img/thermometer.png'
 import gauge from '../img/gauge.png'
 import humidity from '../img/humidity.png'
+import north from '../img/north.png'
+import windy from '../img/windy.png'
 
 import './nearest-city.css'
 
 export const NearestCity = ({ weather }) => {
-    
-    console.log(weather);
 
     return (
-        <div>
+        <div className='NearestCity'>
             <section className='ubication-container'>
                 <p>
                     <img src={navigation} alt="navigation" />
@@ -28,10 +28,10 @@ export const NearestCity = ({ weather }) => {
                 <p>AQI US</p>
             </section>
             <section className='weather-container'>
-                <article>
+                <article className='clima'>
                     <img src={cloudy} alt="cloudy" />
                 </article>
-                <article>
+                <article className='stacks'>
                     <p>
                         <img src={thermometer} alt="thermometer" />
                         <span>{weather.current.weather.tp} °C</span>
@@ -44,10 +44,23 @@ export const NearestCity = ({ weather }) => {
                         <img src={humidity} alt="humidity" />
                         <span>{weather.current.weather.hu}%</span>
                     </p>
-                    {/* <p>Velocidad del viento: {weather.current.weather.ws} m/s</p>
-                    <p>Humedad: {weather.current.weather.wd} grados</p> */}
+                    <p>
+                        <img src={windy} alt="humidity" />
+                        <span>{weather.current.weather.ws} m/s</span>
+                    </p>
+                    <p>
+                        <img src={north} alt="humidity" />
+                        <span>{weather.current.weather.wd}°</span>
+                    </p>
                 </article>
             </section>
+            <footer>
+                    <p style={{
+                        fontSize: "12px",
+                        color: "gray",
+                        marginTop: "18px"
+                    }}>Creado por grupo 8</p>
+                </footer>
         </div>
     )
 }
